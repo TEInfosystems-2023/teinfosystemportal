@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 
 function Service() {
@@ -67,54 +66,70 @@ function Service() {
   ];
 
   return (
-    <div className="min-h-screen text-white">
-
+    <main
+      id="main-content"
+      className="min-h-screen text-white"
+      aria-label="TE Infosystems services"
+    >
       {/* ================= SERVICES ================= */}
       <section
         id="services"
+        aria-labelledby="services-heading"
         className="mx-auto flex min-h-[85vh] max-w-7xl flex-col px-6 py-20"
       >
         {/* Section Heading */}
-        <div className="max-w-2xl">
+        <header className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-300">
             What We Do
           </p>
 
-          <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-            Solutions for the digital world.
-          </h2>
+          <h1
+            id="services-heading"
+            className="mt-3 text-3xl font-bold md:text-4xl"
+          >
+            Technology Solutions for the Digital World
+          </h1>
 
           <p className="mt-4 leading-7 text-slate-400">
-            From intelligent automation to secure cloud infrastructure, we
-            combine technology and business understanding to create practical
-            digital solutions.
+            TE Infosystems helps businesses modernize their operations through
+            AI and automation, custom software development, cloud
+            infrastructure, data engineering, and cybersecurity. We combine
+            technology and business understanding to create practical digital
+            solutions.
           </p>
-        </div>
+        </header>
 
         {/* Service Cards */}
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           {services.map((item, index) => (
-            <div
+            <article
               key={item.title}
+              aria-labelledby={`service-title-${index}`}
               className={`group rounded-2xl border border-slate-800 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-blue-900 ${
                 index === 0 ? "md:col-span-2" : ""
               }`}
             >
               {/* Card Header */}
               <div className="flex items-start justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-800 text-2xl text-blue-300 transition-all duration-300 group-hover:border-blue-900">
+                <div
+                  className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-800 text-2xl text-blue-300 transition-all duration-300 group-hover:border-blue-900"
+                  aria-hidden="true"
+                >
                   {item.icon}
                 </div>
 
-                <span className="text-sm text-slate-600">
+                <span className="text-sm text-slate-600" aria-hidden="true">
                   0{index + 1}
                 </span>
               </div>
 
               {/* Title */}
-              <h3 className="mt-7 text-2xl font-semibold">
+              <h2
+                id={`service-title-${index}`}
+                className="mt-7 text-2xl font-semibold"
+              >
                 {item.title}
-              </h3>
+              </h2>
 
               {/* Description */}
               <p className="mt-3 max-w-2xl leading-7 text-slate-400">
@@ -122,181 +137,204 @@ function Service() {
               </p>
 
               {/* Features */}
-              <div className="mt-6 flex flex-wrap gap-2">
+              <ul
+                aria-label={`${item.title} capabilities`}
+                className="mt-6 flex flex-wrap gap-2"
+              >
                 {item.features.map((feature) => (
-                  <span
+                  <li
                     key={feature}
                     className="rounded-full border border-slate-800 px-3 py-1.5 text-xs text-slate-400 transition-colors duration-300 group-hover:border-slate-700"
                   >
                     {feature}
-                  </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
               {/* Link */}
               <Link
                 to="/servicedetails"
+                aria-label={`Explore ${item.title} services`}
                 className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-blue-300 transition-all duration-300 hover:text-blue-200"
               >
                 Explore Service
-
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                <span
+                  aria-hidden="true"
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                >
                   →
                 </span>
               </Link>
-            </div>
+            </article>
           ))}
         </div>
       </section>
 
       {/* ================= HOW WE WORK ================= */}
-      <section className="border-y border-slate-800">
+      <section
+        aria-labelledby="process-heading"
+        className="border-y border-slate-800"
+      >
         <div className="mx-auto max-w-7xl px-6 py-20">
-
-          <div className="max-w-2xl">
+          <header className="max-w-2xl">
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-300">
               How We Work
             </p>
 
-            <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-              From idea to implementation.
+            <h2
+              id="process-heading"
+              className="mt-3 text-3xl font-bold md:text-4xl"
+            >
+              From Idea to Implementation
             </h2>
 
             <p className="mt-4 leading-7 text-slate-400">
-              We follow a structured approach to understand your needs,
-              develop the right solution, and deliver technology that
-              creates real business value.
+              We follow a structured approach to understand your needs, develop
+              the right solution, and deliver technology that creates real
+              business value.
             </p>
-          </div>
+          </header>
 
           {/* Process */}
-          <div className="mt-12 grid gap-8 md:grid-cols-4">
-
-            <div>
-              <span className="text-4xl font-bold text-blue-300/40">
+          <ol className="mt-12 grid gap-8 md:grid-cols-4">
+            <li>
+              <span
+                className="text-4xl font-bold text-blue-300/40"
+                aria-hidden="true"
+              >
                 01
               </span>
 
-              <h3 className="mt-4 text-xl font-semibold">
-                Discover
-              </h3>
+              <h3 className="mt-4 text-xl font-semibold">Discover</h3>
 
               <p className="mt-2 text-sm leading-6 text-slate-400">
                 Understand your business, challenges, goals, and technical
                 requirements.
               </p>
-            </div>
+            </li>
 
-            <div>
-              <span className="text-4xl font-bold text-blue-300/40">
+            <li>
+              <span
+                className="text-4xl font-bold text-blue-300/40"
+                aria-hidden="true"
+              >
                 02
               </span>
 
-              <h3 className="mt-4 text-xl font-semibold">
-                Design
-              </h3>
+              <h3 className="mt-4 text-xl font-semibold">Design</h3>
 
               <p className="mt-2 text-sm leading-6 text-slate-400">
-                Plan the architecture, user experience, technology stack,
-                and implementation strategy.
+                Plan the architecture, user experience, technology stack, and
+                implementation strategy.
               </p>
-            </div>
+            </li>
 
-            <div>
-              <span className="text-4xl font-bold text-blue-300/40">
+            <li>
+              <span
+                className="text-4xl font-bold text-blue-300/40"
+                aria-hidden="true"
+              >
                 03
               </span>
 
-              <h3 className="mt-4 text-xl font-semibold">
-                Develop
-              </h3>
+              <h3 className="mt-4 text-xl font-semibold">Develop</h3>
 
               <p className="mt-2 text-sm leading-6 text-slate-400">
-                Build, integrate, test, and refine the solution using
-                modern development practices.
+                Build, integrate, test, and refine the solution using modern
+                development practices.
               </p>
-            </div>
+            </li>
 
-            <div>
-              <span className="text-4xl font-bold text-blue-300/40">
+            <li>
+              <span
+                className="text-4xl font-bold text-blue-300/40"
+                aria-hidden="true"
+              >
                 04
               </span>
 
-              <h3 className="mt-4 text-xl font-semibold">
-                Deliver
-              </h3>
+              <h3 className="mt-4 text-xl font-semibold">Deliver</h3>
 
               <p className="mt-2 text-sm leading-6 text-slate-400">
-                Deploy the solution and continue improving it as your
-                business grows.
+                Deploy the solution and continue improving it as your business
+                grows.
               </p>
-            </div>
-
-          </div>
+            </li>
+          </ol>
         </div>
       </section>
 
       {/* ================= TECHNOLOGY ================= */}
-      <section className="mx-auto max-w-7xl px-6 py-20">
-
-        <div className="max-w-2xl">
+      <section
+        aria-labelledby="technology-heading"
+        className="mx-auto max-w-7xl px-6 py-20"
+      >
+        <header className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-300">
             Technology
           </p>
 
-          <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-            Built with modern technologies.
+          <h2
+            id="technology-heading"
+            className="mt-3 text-3xl font-bold md:text-4xl"
+          >
+            Built with Modern Technologies
           </h2>
 
           <p className="mt-4 leading-7 text-slate-400">
             We choose technologies based on the requirements, scalability,
             performance, security, and long-term goals of each project.
           </p>
-        </div>
+        </header>
 
-        <div className="mt-10 flex flex-wrap gap-3">
+        <ul
+          aria-label="Technologies we work with"
+          className="mt-10 flex flex-wrap gap-3"
+        >
           {technologies.map((technology) => (
-            <span
+            <li
               key={technology}
               className="rounded-full border border-slate-800 px-5 py-2.5 text-sm text-slate-400 transition-all duration-300 hover:border-blue-900 hover:text-white"
             >
               {technology}
-            </span>
+            </li>
           ))}
-        </div>
-
+        </ul>
       </section>
 
       {/* ================= CTA ================= */}
-      <section className="mx-auto max-w-7xl px-6 pb-20">
-
+      <section
+        aria-labelledby="contact-cta-heading"
+        className="mx-auto max-w-7xl px-6 pb-20"
+      >
         <div className="rounded-2xl border border-slate-800 px-6 py-16 text-center transition-colors duration-300 hover:border-slate-700">
-
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-300">
             Let's Build Together
           </p>
 
-          <h2 className="mt-4 text-3xl font-bold md:text-4xl">
-            Have a technology challenge?
+          <h2
+            id="contact-cta-heading"
+            className="mt-4 text-3xl font-bold md:text-4xl"
+          >
+            Have a Technology Challenge?
           </h2>
 
           <p className="mx-auto mt-4 max-w-xl leading-7 text-slate-400">
-            Let's discuss your idea and build a digital solution that
-            fits your business.
+            Let's discuss your idea and build a digital solution that fits your
+            business.
           </p>
 
           <Link
             to="/contact"
+            aria-label="Contact TE Infosystems to start a project"
             className="mt-7 inline-flex items-center gap-2 rounded-lg bg-[#172554] px-6 py-3 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1e3a8a]"
           >
             Start a Project
-            <span>→</span>
+            <span aria-hidden="true">→</span>
           </Link>
-
         </div>
       </section>
-
-    </div>
+    </main>
   );
 }
 
