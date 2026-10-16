@@ -94,7 +94,7 @@ function Footer() {
 
       <div className="border-t border-gray-300/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-5 text-xs text-gray-500 md:flex-row">
-          <p>© 2026 TE Infosystems. All rights reserved.</p>
+          <p>© 2023 TE Infosystems. All rights reserved.</p>
           <p>Designed & Developed with care.</p>
         </div>
       </div>

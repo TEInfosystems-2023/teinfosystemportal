@@ -1,74 +1,124 @@
-
 import { Helmet } from "react-helmet-async";
-import Hero from "../component/common/Hero";
+import { Link } from "react-router-dom";
 import useReveal from "../hooks/useReveal";
 
 const services = [
   {
+    number: "01",
     icon: "✦",
     title: "AI & Business Automation",
-    text: "Automate repetitive business processes with AI-powered solutions that improve productivity and operational efficiency.",
+    text: "Automate repetitive business processes with intelligent solutions that improve productivity and operational efficiency.",
+    tags: ["Artificial Intelligence", "RPA", "Workflow Automation"],
   },
   {
+    number: "02",
     icon: "◇",
     title: "Software Development",
-    text: "Build custom software, web applications, and scalable SaaS products tailored to your business requirements.",
+    text: "Build custom software, web applications, APIs, and scalable SaaS platforms around your business requirements.",
+    tags: ["Web Applications", "Enterprise Software", "SaaS"],
   },
   {
+    number: "03",
     icon: "☁",
     title: "Cloud & Data Solutions",
-    text: "Modernize business infrastructure with cloud integration, migration, and data management solutions.",
+    text: "Modernize infrastructure, connect business systems, and transform data into meaningful business insights.",
+    tags: ["Cloud Migration", "Data Engineering", "Analytics"],
   },
   {
+    number: "04",
     icon: "◉",
     title: "Cybersecurity Solutions",
-    text: "Strengthen digital infrastructure with security-focused development and practices that help protect business data.",
+    text: "Build security into applications and infrastructure to help protect business systems and sensitive information.",
+    tags: ["Application Security", "Secure Architecture", "Risk Reduction"],
   },
 ];
 
 const benefits = [
-  [
-    "Intelligent Solutions",
-    "We apply modern technologies and AI to solve business challenges and streamline complex workflows.",
-  ],
-  [
-    "Scalable Technology",
-    "Our software solutions are designed to support evolving requirements and business growth.",
-  ],
-  [
-    "Security by Design",
-    "We consider security throughout the software development and deployment lifecycle.",
-  ],
-  [
-    "Business-Focused Approach",
-    "We align technology solutions with business goals, practical needs, and measurable outcomes.",
-  ],
+  {
+    number: "01",
+    title: "Intelligent Solutions",
+    text: "Apply modern technologies to solve business challenges and simplify complex workflows.",
+  },
+  {
+    number: "02",
+    title: "Scalable Technology",
+    text: "Develop flexible software solutions designed to support changing business requirements.",
+  },
+  {
+    number: "03",
+    title: "Security by Design",
+    text: "Consider security throughout the software development and deployment lifecycle.",
+  },
+  {
+    number: "04",
+    title: "Business-Focused Delivery",
+    text: "Align technical decisions with business priorities, practical needs, and measurable outcomes.",
+  },
+];
+
+const process = [
+  {
+    number: "01",
+    title: "Discover",
+    text: "Understand your business goals, challenges, and technical requirements.",
+  },
+  {
+    number: "02",
+    title: "Design",
+    text: "Plan the architecture, user experience, and implementation strategy.",
+  },
+  {
+    number: "03",
+    title: "Develop",
+    text: "Build, integrate, test, and refine your digital solution.",
+  },
+  {
+    number: "04",
+    title: "Deliver",
+    text: "Deploy the solution and support continuous improvement.",
+  },
+];
+
+const technologies = [
+  "React",
+  "Java",
+  "Spring Boot",
+  "Python",
+  "JavaScript",
+  "AWS",
+  "PostgreSQL",
+  "Docker",
+  "AI / ML",
+  "REST APIs",
 ];
 
 function Home() {
   const [servicesRef, servicesVisible] = useReveal();
   const [aboutRef, aboutVisible] = useReveal();
   const [whyRef, whyVisible] = useReveal();
+  const [processRef, processVisible] = useReveal();
   const [ctaRef, ctaVisible] = useReveal();
+
+  const reveal = (visible) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${
+      visible
+        ? "translate-y-0 opacity-100"
+        : "translate-y-6 opacity-0 motion-reduce:translate-y-0 motion-reduce:opacity-100"
+    }`;
 
   return (
     <>
       <Helmet>
         <title>
-          TE Infosystems | Software Development & IT Solutions
+          TE Infosystems | IT Services, Software Development & AI Solutions
         </title>
 
         <meta
           name="description"
-          content="Explore TE Infosystems' software development, AI and business automation, cloud computing, and cybersecurity solutions for modern businesses."
+          content="Discover TE Infosystems technology services, including custom software development, AI and business automation, cloud solutions, data engineering, and cybersecurity."
         />
 
         <meta name="robots" content="index, follow" />
-
-        <link
-          rel="canonical"
-          href="https://yourdomain.com/"
-        />
 
         <meta
           property="og:type"
@@ -77,232 +127,470 @@ function Home() {
 
         <meta
           property="og:title"
-          content="TE Infosystems | Software Development & IT Solutions"
+          content="TE Infosystems | Technology Solutions for Business"
         />
 
         <meta
           property="og:description"
-          content="Discover software development, AI automation, cloud, and digital technology solutions from TE Infosystems."
-        />
-
-        <meta
-          property="og:url"
-          content="https://yourdomain.com/"
+          content="Explore software development, AI automation, cloud, data, and cybersecurity solutions from TE Infosystems."
         />
 
         <meta
           name="twitter:card"
-          content="summary"
+          content="summary_large_image"
         />
 
         <meta
           name="twitter:title"
-          content="TE Infosystems | IT Solutions"
+          content="TE Infosystems | Technology Solutions"
         />
 
         <meta
           name="twitter:description"
-          content="Explore software development, AI automation, cloud, and cybersecurity services from TE Infosystems."
+          content="Technology solutions designed around your business goals."
         />
       </Helmet>
 
-      <main className="text-white">
-        {/* Hero */}
-        <Hero />
+      <main className="overflow-hidden  text-white">
 
-        {/* Services */}
+        {/* ================= HERO ================= */}
         <section
-          ref={servicesRef}
-          aria-labelledby="services-heading"
-          className={`mx-auto max-w-7xl px-6 py-20 transition-all duration-700 ease-out motion-reduce:transform-none motion-reduce:transition-none ${
-            servicesVisible
-              ? "translate-y-0 opacity-100"
-              : "translate-y-8 opacity-0 motion-reduce:opacity-100"
-          }`}
+          aria-labelledby="hero-heading"
+          className="relative isolate border-b border-white/10"
         >
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-300">
-            Our Services
-          </p>
-
-          <h2
-            id="services-heading"
-            className="mt-3 text-3xl font-bold md:text-4xl"
+          {/* Background decoration */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
           >
-            Software and IT solutions for modern businesses.
-          </h2>
+            <div className="absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-blue-600/15 blur-[120px]" />
 
-          <p className="mt-4 max-w-2xl leading-7 text-slate-400">
-            TE Infosystems helps businesses solve real-world challenges
-            through software development, artificial intelligence,
-            automation, cloud computing, and secure digital solutions.
-          </p>
+            <div className="absolute -bottom-40 left-0 h-[350px] w-[350px] rounded-full bg-indigo-600/10 blur-[110px]" />
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {services.map((service) => (
-              <article
-                key={service.title}
-                className="rounded-2xl border border-slate-800 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-900 hover:bg-white/5 motion-reduce:transform-none motion-reduce:transition-none"
-              >
-                <div
-                  aria-hidden="true"
-                  className="mb-6 text-2xl text-blue-300"
-                >
-                  {service.icon}
-                </div>
-
-                <h3 className="text-lg font-semibold">
-                  {service.title}
-                </h3>
-
-                <p className="mt-3 text-sm leading-6 text-slate-400">
-                  {service.text}
-                </p>
-              </article>
-            ))}
+            <div
+              className="absolute inset-0 opacity-[0.06]"
+              style={{
+                backgroundImage:
+                  "linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px)",
+                backgroundSize: "64px 64px",
+              }}
+            />
           </div>
 
-          <a
-            href="/services"
-            className="mt-8 inline-block text-sm font-medium text-blue-300 hover:text-blue-200"
-          >
-            Explore all our services →
-          </a>
+          <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 sm:py-28 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:py-36">
+
+            {/* Hero Content */}
+            <div>
+              
+
+              <h1
+                id="hero-heading"
+                className="mt-8 max-w-3xl text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl lg:text-7xl"
+              >
+                Technology that moves your business{" "}
+                <span className="bg-gradient-to-r from-blue-300 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
+                  forward.
+                </span>
+              </h1>
+
+              <p className="mt-7 max-w-2xl text-base leading-8 text-slate-400 sm:text-lg">
+                TE Infosystems helps businesses turn ideas into practical
+                digital solutions through software engineering, intelligent
+                automation, cloud technologies, and secure development.
+              </p>
+
+              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-3 rounded-lg bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
+                >
+                  Discuss Your Project
+                  
+                </Link>
+
+                <Link
+                  to="/services"
+                  className="inline-flex items-center justify-center gap-3 rounded-lg border border-white/15 px-6 py-3.5 text-sm font-semibold text-slate-200 transition-all duration-300 hover:border-blue-400/50 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
+                >
+                  Explore Our Services
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+
+              
+            </div>
+
+            {/* Hero Visual */}
+            
+
+              
+          </div>
         </section>
 
-        {/* About */}
+        {/* ================= SERVICES ================= */}
+        <section
+          id="services"
+          ref={servicesRef}
+          aria-labelledby="services-heading"
+          className={reveal(servicesVisible)}
+        >
+          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-28">
+            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+              <div className="max-w-2xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+                  What We Do
+                </p>
+
+                <h2
+                  id="services-heading"
+                  className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
+                >
+                  Technology solutions for real business challenges.
+                </h2>
+              </div>
+
+              <Link
+                to="/service"
+                className="inline-flex shrink-0 items-center gap-2 text-sm font-medium text-blue-300 transition-colors hover:text-blue-200"
+              >
+                View all services <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
+
+            <p className="mt-6 max-w-2xl leading-7 text-slate-400">
+              From building modern applications to automating operations,
+              we help organizations explore technology that fits their needs.
+            </p>
+
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {services.map((service) => (
+                <article
+                  key={service.number}
+                  className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/30 hover:bg-white/[0.04] sm:p-7"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-blue-400/15 bg-blue-500/[0.08] text-2xl text-blue-300">
+                      {service.icon}
+                    </span>
+
+                    <span className="text-sm text-slate-600">
+                      {service.number}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-7 text-xl font-semibold leading-7">
+                    {service.title}
+                  </h3>
+
+                  <p className="mt-4 flex-1 text-sm leading-7 text-slate-400">
+                    {service.text}
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {service.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-md border border-white/[0.08] px-2.5 py-1.5 text-xs text-slate-400"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Link
+                    to="/servicedetails"
+                    aria-label={`Explore ${service.title}`}
+                    className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-blue-300 transition-colors hover:text-blue-200"
+                  >
+                    Explore service
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ================= ABOUT ================= */}
         <section
           ref={aboutRef}
           aria-labelledby="about-heading"
-          className={`border-y border-slate-800 transition-all duration-700 ease-out motion-reduce:transform-none motion-reduce:transition-none ${
-            aboutVisible
-              ? "translate-y-0 opacity-100"
-              : "translate-y-8 opacity-0 motion-reduce:opacity-100"
-          }`}
+          className={`border-y border-white/10 bg-white/[0.015] ${reveal(aboutVisible)}`}
         >
-          <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 md:grid-cols-2 lg:gap-20 lg:py-28">
             <div>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-300">
-                Who We Are
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+                About TE Infosystems
               </p>
 
               <h2
                 id="about-heading"
-                className="mt-3 text-3xl font-bold md:text-4xl"
+                className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
               >
                 Turning business ideas into digital solutions.
               </h2>
 
-              <p className="mt-6 leading-7 text-slate-400">
-                TE Infosystems is an IT services company focused on
-                software development, AI-powered automation, cloud
-                computing, and digital transformation.
+              <p className="mt-6 leading-8 text-slate-400">
+                TE Infosystems focuses on software development,
+                AI-powered automation, cloud technologies, and digital
+                transformation. We aim to make technology useful,
+                practical, and aligned with business priorities.
               </p>
 
-              <p className="mt-4 leading-7 text-slate-400">
-                We help businesses simplify workflows, improve
-                operational efficiency, and develop scalable digital
-                products aligned with their goals.
+              <p className="mt-4 leading-8 text-slate-400">
+                Our approach combines thoughtful planning, modern
+                engineering practices, and an understanding of the
+                challenges organizations face as they grow.
               </p>
 
-              <a
-                href="/about"
-                className="mt-7 inline-block text-sm font-medium text-blue-300 transition-colors duration-300 hover:text-blue-200"
+              <Link
+                to="/about"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-blue-300 hover:text-blue-200"
               >
-                Learn more about TE Infosystems →
-              </a>
+                Learn more about us
+                <span aria-hidden="true">↗</span>
+              </Link>
             </div>
 
-            <div
-              role="img"
-              aria-label="TE Infosystems brand identity representing technology, innovation, and growth"
-              className="flex min-h-[300px] items-center justify-center rounded-2xl border border-slate-800 transition-all duration-500 hover:border-blue-900"
-            >
-              <div aria-hidden="true" className="text-center">
-                <div className="bg-gradient-to-r from-blue-200 to-blue-500 bg-clip-text text-7xl font-bold text-transparent">
-                  TE
+            <div className="relative">
+              <div
+                aria-hidden="true"
+                className="absolute -inset-4 rounded-3xl bg-blue-500/[0.05] blur-2xl"
+              />
+
+              <div className="relative rounded-2xl border border-white/10 bg-[#0C1324] p-7 sm:p-10">
+                <div className="flex items-center gap-4 border-b border-white/10 pb-7">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-700 text-2xl font-bold shadow-lg shadow-blue-900/20">
+                    TE
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold">
+                      TE Infosystems
+                    </h3>
+                    <p className="mt-1 text-sm text-slate-500">
+                      Technology · Innovation · Growth
+                    </p>
+                  </div>
                 </div>
 
-                <p className="mt-3 text-sm text-slate-500">
-                  Technology • Innovation • Growth
-                </p>
+                <div className="mt-7 space-y-6">
+                  {[
+                    ["Business First", "Technology guided by real requirements."],
+                    ["Engineering Focus", "Solutions built with scalability in mind."],
+                    ["Continuous Improvement", "A practical approach to evolving needs."],
+                  ].map(([title, text]) => (
+                    <div key={title} className="flex gap-4">
+                      <span
+                        aria-hidden="true"
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-blue-400/20 bg-blue-500/[0.08] text-blue-300"
+                      >
+                        ✓
+                      </span>
+
+                      <div>
+                        <h3 className="text-sm font-semibold">{title}</h3>
+                        <p className="mt-1 text-sm leading-6 text-slate-400">
+                          {text}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Why Choose Us */}
+        {/* ================= WHY CHOOSE US ================= */}
         <section
           ref={whyRef}
           aria-labelledby="why-heading"
-          className={`mx-auto max-w-7xl px-6 py-20 transition-all duration-700 ease-out motion-reduce:transform-none motion-reduce:transition-none ${
-            whyVisible
-              ? "translate-y-0 opacity-100"
-              : "translate-y-8 opacity-0 motion-reduce:opacity-100"
-          }`}
+          className={reveal(whyVisible)}
         >
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-300">
-            Why TE Infosystems
-          </p>
+          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-28">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+                Why TE Infosystems
+              </p>
 
-          <h2
-            id="why-heading"
-            className="mt-3 text-3xl font-bold md:text-4xl"
-          >
-            Technology built around your business goals.
-          </h2>
-
-          <p className="mt-4 max-w-2xl leading-7 text-slate-400">
-            We focus on practical, reliable technology that helps
-            businesses improve processes and prepare for growth.
-          </p>
-
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {benefits.map(([title, text]) => (
-              <article
-                key={title}
-                className="rounded-xl border border-slate-800 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-900 motion-reduce:transform-none motion-reduce:transition-none"
+              <h2
+                id="why-heading"
+                className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
               >
-                <h3 className="text-xl font-semibold">{title}</h3>
+                Built around your business goals.
+              </h2>
 
-                <p className="mt-2 leading-7 text-slate-400">
-                  {text}
-                </p>
-              </article>
-            ))}
+              <p className="mt-6 max-w-2xl leading-7 text-slate-400">
+                Technology delivers value when it solves the right
+                problems. We focus on practical engineering,
+                thoughtful implementation, and long-term usability.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2">
+              {benefits.map((benefit) => (
+                <article
+                  key={benefit.number}
+                  className="bg-[#0A1020] p-7 transition-colors duration-300 hover:bg-[#101A30] sm:p-9"
+                >
+                  <p className="text-sm font-medium tracking-wider text-blue-300">
+                    {benefit.number}
+                  </p>
+
+                  <h3 className="mt-5 text-xl font-semibold">
+                    {benefit.title}
+                  </h3>
+
+                  <p className="mt-3 max-w-md leading-7 text-slate-400">
+                    {benefit.text}
+                  </p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Call to Action */}
+        {/* ================= OUR PROCESS ================= */}
+        <section
+          ref={processRef}
+          aria-labelledby="process-heading"
+          className={`border-y border-white/10 bg-white/[0.015] ${reveal(processVisible)}`}
+        >
+          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-28">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+                How We Work
+              </p>
+
+              <h2
+                id="process-heading"
+                className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl"
+              >
+                From initial idea to implementation.
+              </h2>
+
+              <p className="mt-5 leading-7 text-slate-400">
+                A structured process helps keep requirements,
+                engineering, and delivery aligned throughout a project.
+              </p>
+            </div>
+
+            <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {process.map((step, index) => (
+                <li key={step.number} className="relative">
+                  <div className="flex items-center gap-4">
+                    <span className="text-4xl font-semibold tracking-tight text-blue-300/70">
+                      {step.number}
+                    </span>
+
+                    {index < process.length - 1 && (
+                      <span
+                        aria-hidden="true"
+                        className="hidden h-px flex-1 bg-gradient-to-r from-blue-400/40 to-transparent lg:block"
+                      />
+                    )}
+                  </div>
+
+                  <h3 className="mt-6 text-xl font-semibold">
+                    {step.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-7 text-slate-400">
+                    {step.text}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* ================= TECHNOLOGY ================= */}
+        <section aria-labelledby="technology-heading">
+          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-28">
+            <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+              <div className="max-w-2xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+                  Our Technology Stack
+                </p>
+
+                <h2
+                  id="technology-heading"
+                  className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl"
+                >
+                  The right tools for the right solution.
+                </h2>
+              </div>
+
+              <p className="max-w-md leading-7 text-slate-400">
+                Technology choices depend on project requirements,
+                security, performance, and long-term maintainability.
+              </p>
+            </div>
+
+            <ul
+              aria-label="Technologies used"
+              className="mt-10 flex flex-wrap gap-3"
+            >
+              {technologies.map((technology) => (
+                <li
+                  key={technology}
+                  className="rounded-lg border border-white/10 bg-white/[0.025] px-5 py-3 text-sm text-slate-300 transition-all duration-300 hover:border-blue-400/30 hover:bg-blue-500/[0.05]"
+                >
+                  {technology}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* ================= CTA ================= */}
         <section
           ref={ctaRef}
           aria-labelledby="cta-heading"
-          className={`mx-auto max-w-7xl px-6 pb-20 transition-all duration-700 ease-out motion-reduce:transform-none motion-reduce:transition-none ${
-            ctaVisible
-              ? "translate-y-0 opacity-100"
-              : "translate-y-8 opacity-0 motion-reduce:opacity-100"
-          }`}
+          className={`mx-auto max-w-7xl px-6 pb-24 sm:pb-28 ${reveal(ctaVisible)}`}
         >
-          <div className="rounded-2xl border border-slate-800 px-6 py-16 text-center">
-            <h2
-              id="cta-heading"
-              className="text-3xl font-bold md:text-4xl"
-            >
-              Ready to build your next digital solution?
-            </h2>
+          <div className="relative overflow-hidden rounded-2xl border border-blue-400/20 bg-gradient-to-br from-[#111F40] via-[#0E1730] to-[#0A1020] px-6 py-16 sm:px-12 sm:py-20 lg:px-16">
+            <div
+              aria-hidden="true"
+              className="absolute -right-20 -top-28 h-72 w-72 rounded-full bg-blue-500/15 blur-[90px]"
+            />
 
-            <p className="mx-auto mt-4 max-w-xl text-slate-400">
-              Tell us about your business challenges and let's explore
-              how technology can help you achieve your goals.
-            </p>
+            <div className="relative flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+              <div className="max-w-2xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+                  Let's Build Together
+                </p>
 
-            <a
-              href="/contact"
-              className="mt-7 inline-block rounded-lg bg-[#172554] px-6 py-3 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1e3a8a] motion-reduce:transform-none motion-reduce:transition-none"
-            >
-              Discuss Your Project →
-            </a>
+                <h2
+                  id="cta-heading"
+                  className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
+                >
+                  Have a technology challenge?
+                </h2>
+
+                <p className="mt-5 max-w-xl leading-7 text-slate-400">
+                  Tell us about your goals, your challenges, and the
+                  solution you want to build. Let's start a conversation.
+                </p>
+              </div>
+
+              <Link
+                to="/contact"
+                className="inline-flex shrink-0 items-center justify-center gap-3 rounded-lg bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
+              >
+                Start a Conversation
+                <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
           </div>
         </section>
+
       </main>
     </>
   );

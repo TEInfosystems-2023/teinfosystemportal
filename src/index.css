@@ -15,13 +15,7 @@ body {
 #root {
   width: 100%;
   min-height: 100vh;
-
-  background: linear-gradient(
-  to bottom right,
-  #172554,
-  #0f172a,
-  #020617
-);
+  background: #080D1C;
 }
 html {
   scrollbar-width: none;

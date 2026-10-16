@@ -23,14 +23,6 @@ function Navbar() {
           >
             Home
           </Link>
-
-          <Link
-            to="/contact"
-            className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:text-black"
-          >
-            Contact
-          </Link>
-
           <Link
             to="/service"
             className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:text-black"
@@ -43,6 +35,13 @@ function Navbar() {
             className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:text-black"
           >
             Service Details
+          </Link>
+
+          <Link
+            to="/contact"
+            className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:text-black"
+          >
+            Contact
           </Link>
 
           <Link
