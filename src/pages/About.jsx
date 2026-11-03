@@ -67,7 +67,7 @@ function ProfileImage({ src, name, className = "" }) {
 
   return (
     <div
-      className={`flex shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-blue-900 to-slate-800 ${className}`}
+      className={`flex shrink-0 items-center justify-center overflow-hidden rounded-2xl  ${className}`}
     >
       {!failed ? (
         <img
@@ -119,7 +119,7 @@ function SocialLinks({ linkedin, github }) {
 
 function PersonCard({ person, featured = false }) {
   return (
-    <article className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:bg-white/[0.07] sm:p-6">
+    <article className="group flex h-full flex-col rounded-2xl border border-white/10 p-5 transition duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:bg-white/[0.07] sm:p-6">
       <div className="flex items-start gap-4">
         <ProfileImage
           src={person.image}
@@ -170,10 +170,10 @@ function PersonCard({ person, featured = false }) {
 
 export default function About() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#080d1c] text-white">
+    <main className="min-h-screen overflow-hidden  text-black">
       {/* Hero */}
       <section className="relative border-b border-white/10">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/70 via-[#080d1c] to-cyan-950/20" />
+        <div className="absolute inset-0 " />
         <div className="absolute -left-32 top-10 h-72 w-72 rounded-full bg-blue-600/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-12">

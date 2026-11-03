@@ -29,7 +29,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="text-white">
+    <footer className="text-black">
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="grid gap-10 md:grid-cols-2">
           <div>
@@ -42,24 +42,24 @@ function Footer() {
               connect, and move forward.
             </p>
 
-            <div className="mt-6 flex gap-8 text-sm text-gray-400">
+            <div className="mt-6 flex gap-8 text-sm text-black-400">
               <a
                 href="#"
-                className="transition-colors duration-300 hover:text-white"
+                className="transition-colors duration-300 "
               >
                 Home
               </a>
 
               <a
                 href="#"
-                className="transition-colors duration-300 hover:text-white"
+                className="transition-colors duration-300 "
               >
                 Services
               </a>
 
               <a
                 href="#"
-                className="transition-colors duration-300 hover:text-white"
+                className="transition-colors duration-300 "
               >
                 Contact
               </a>
@@ -74,15 +74,15 @@ function Footer() {
             <div className="divide-y divide-white/10 border-y border-white/10">
               {faqs.map((faq, index) => (
                 <details key={index} className="group py-4">
-                  <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-medium text-gray-200">
+                  <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-medium text-black">
                     {faq.question}
 
-                    <span className="ml-4 text-xl text-gray-400 transition-transform duration-300 group-open:rotate-45">
+                    <span className="ml-4 text-xl text-gray-900 transition-transform duration-300 group-open:rotate-45">
                       +
                     </span>
                   </summary>
 
-                  <p className="mt-3 pr-8 text-sm leading-6 text-gray-400">
+                  <p className="mt-3 pr-8 text-sm leading-6 text-gray-900">
                     {faq.answer}
                   </p>
                 </details>

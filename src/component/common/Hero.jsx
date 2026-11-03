@@ -6,9 +6,9 @@ function Hero() {
       <section className="mx-auto flex min-h-screen max-w-7xl items-center px-6 py-20">
         <div className="max-w-4xl animate-fade-up">
 
-          <h1 className="text-5xl font-bold leading-tight md:text-7xl">
+          <h1 className="text-5xl font-bold leading-tight md:text-7xl text-black">
             Technology That
-            <span className="block bg-gradient-to-r from-blue-200 to-blue-500 bg-clip-text text-transparent">
+            <span className="block text-black bg-clip-text ">
               Moves Business Forward.
             </span>
           </h1>
@@ -28,7 +28,7 @@ function Hero() {
 
             <a
               href="/service"
-              className="rounded-lg border border-slate-700 px-6 py-3 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/5"
+              className="rounded-lg text-black border border-slate-700 px-6 py-3 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/5"
             >
               Explore Services
             </a>

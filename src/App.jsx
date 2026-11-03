@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import Service from "./pages/Service";
 import ServiceDetails from "./pages/ServiceDetails";
 import About from "./pages/About";
+import Login from "./pages/Login";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -40,6 +41,7 @@ function App() {
           />
 
           <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login/>}/>
 
         </Route>
 

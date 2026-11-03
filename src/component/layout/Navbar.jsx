@@ -5,8 +5,8 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="top-5 w-full  -translate-x-1/2 left-1/2 z-50 bg-transparent text-white fixed ">
-      <div className="h-[56px]   mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
+    <nav className=" w-full h-[60px] -translate-x-1/2 left-1/2 z-50 bg-white text-white fixed ">
+      <div className="h-[56px] text-black  mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
         <div>
           <Link
             to="/"
@@ -16,37 +16,37 @@ function Navbar() {
           </Link>
         </div>
 
-        <div className="backdrop-blur-lg  hidden items-center gap-1 rounded-full border-[0.1px] border-gray-400/50 bg-[]  p-2 text-white shadow-lg backdrop-blur-sm md:flex">
+        <div className="  hidden items-center gap-1    p-2 text-black   md:flex">
           <Link
             to="/"
-            className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:text-black"
+            className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-black hover:text-white"
           >
             Home
           </Link>
           <Link
             to="/service"
-            className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:text-black"
+            className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-black hover:text-white"
           >
             Services
           </Link>
 
           <Link
             to="/servicedetails"
-            className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:text-black"
+            className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-black hover:text-white"
           >
             Service Details
           </Link>
 
           <Link
             to="/contact"
-            className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:text-black"
+            className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-black hover:text-white"
           >
             Contact
           </Link>
 
           <Link
             to="/about"
-            className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-white hover:text-black"
+            className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-black hover:text-white"
           >
             About
           </Link>
@@ -59,7 +59,7 @@ function Navbar() {
           </button>
 
           <Link
-            to="/contact"
+            to="/login"
             className="rounded-full bg-green-50 px-6 py-3 text-sm font-semibold text-black shadow-md transition-all duration-300 hover:scale-105 hover:bg-green-100"
           >
             Book a Call
