@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Dropdown from "../common/DropDown";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,12 +24,9 @@ function Navbar() {
           >
             Home
           </Link>
-          <Link
-            to="/service"
-            className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-black hover:text-white"
-          >
-            Services
-          </Link>
+          
+            <Dropdown/>
+          
 
           <Link
             to="/servicedetails"
@@ -42,6 +40,12 @@ function Navbar() {
             className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-black hover:text-white"
           >
             Contact
+          </Link>
+          <Link
+            to="/carrers"
+            className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-black hover:text-white"
+          >
+            Careers
           </Link>
 
           <Link
