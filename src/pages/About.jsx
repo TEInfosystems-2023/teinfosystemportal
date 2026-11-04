@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import logo from "../assets/linkedin.png";
 
 const leadership = [
   {
@@ -140,7 +141,9 @@ function PersonCard({ person }) {
             rel="noopener noreferrer"
             className="text-sm font-medium text-black underline underline-offset-4 hover:text-gray-500"
           >
-            LinkedIn ↗
+            <div>
+              <img src={logo} alt="linkedin" className="w-[18px] h-[18px]"></img>
+            </div>
           </a>
         </div>
       )}
