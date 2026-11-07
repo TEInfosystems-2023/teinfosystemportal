@@ -62,12 +62,7 @@ function Navbar() {
             EN
           </button>
 
-          <Link
-            to="/login"
-            className="rounded-full bg-green-50 px-6 py-3 text-sm font-semibold text-black shadow-md transition-all duration-300 hover:scale-105 hover:bg-green-100"
-          >
-            Book a Call
-          </Link>
+          
         </div>
 
         <button
@@ -147,13 +142,7 @@ function Navbar() {
                 EN
               </button>
 
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="rounded-full bg-green-50 px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-green-100"
-              >
-                Book a Call
-              </Link>
+              
             </div>
           </div>
         </div>

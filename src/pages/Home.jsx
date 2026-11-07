@@ -134,13 +134,8 @@ function Home() {
       </Helmet>
 
       <main className="overflow-hidden  text-white">
-        {/* ================= HERO ================= */}
-        <section
-          aria-labelledby="hero-heading"
-          className="relative isolate border-b border-white/10"
-        >
-          <Hero />
-        </section>
+        
+        <Hero/>
 
         {/* ================= SERVICES ================= */}
         <section
@@ -215,15 +210,14 @@ function Home() {
                   <Link
                     to="/servicedetails"
                     aria-label={`Explore ${service.title}`}
+                    
                     className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-blue-900 transition-colors hover:text-blue-200"
                   >
-                    Explore service
-                    <span
-                      aria-hidden="true"
-                      className="transition-transform group-hover:translate-x-1"
-                    >
-                      →
-                    </span>
+                    
+                    
+                    
+                    Explore Service
+                    
                   </Link>
                 </article>
               ))}

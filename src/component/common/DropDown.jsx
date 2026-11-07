@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 function Dropdown() {
   return (
     <div className="relative group">
-
-      {/* Dropdown Trigger */}
       <button
         className="flex items-center gap-2 rounded-full px-5 py-2
         text-sm font-medium text-black
@@ -42,34 +40,16 @@ function Dropdown() {
           shadow-xl shadow-black/10 border border-gray-100">
 
           <Link
-            to="/web-development"
+            to="/soft-development"
             className="block rounded-xl px-4 py-3
             text-sm font-medium text-gray-700
             hover:bg-gray-100 hover:text-black
             transition-all duration-200"
           >
-            Web Development
+            Software Development
           </Link>
 
-          <Link
-            to="/app-development"
-            className="block rounded-xl px-4 py-3
-            text-sm font-medium text-gray-700
-            hover:bg-gray-100 hover:text-black
-            transition-all duration-200"
-          >
-            App Development
-          </Link>
-
-          <Link
-            to="/crm"
-            className="block rounded-xl px-4 py-3
-            text-sm font-medium text-gray-700
-            hover:bg-gray-100 hover:text-black
-            transition-all duration-200"
-          >
-            CRM Solutions
-          </Link>
+          
 
           
 

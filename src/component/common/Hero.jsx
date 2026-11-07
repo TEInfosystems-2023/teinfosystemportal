@@ -1,43 +1,52 @@
 
+import her from "../../assets/HeroImage.png";
 
 function Hero() {
   return (
-    <div>
-      <section className="mx-auto flex min-h-screen max-w-7xl items-center px-6 py-20">
-        <div className="max-w-4xl animate-fade-up">
+    <section className="relative isolate min-h-screen w-full mx-auto flex  items-center px-6 py-20 overflow-hidden">
 
-          <h1 className="text-5xl font-bold leading-tight md:text-7xl text-black">
-            Technology That
-            <span className="block text-black bg-clip-text ">
-              Moves Business Forward.
-            </span>
-          </h1>
+      {/* Background Image */}
+      <img
+        src={her}
+        alt="Technology background"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-400">
-            We build intelligent software, AI-powered solutions, cloud
-            platforms, and secure digital experiences for modern businesses.
-          </p>
+      {/* Dark Overlay */}
+      <div className="absolute  inset-0 bg-black/50"></div>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="/contact"
-              className="rounded-lg bg-[#172554] px-6 py-3 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1e3a8a]"
-            >
-              Start a Project
-            </a>
+      {/* Text Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20 text-white">
 
-            <a
-              href="/service"
-              className="rounded-lg text-black border border-slate-700 px-6 py-3 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/5"
-            >
-              Explore Services
-            </a>
-          </div>
+        <h1 className="text-4xl md:text-7xl font-bold leading-tight">
+          Technology That
+          <span className="block">
+            Moves Business Forward.
+          </span>
+        </h1>
+
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
+          We build intelligent software, AI-powered solutions, cloud
+          platforms, and secure digital experiences for modern businesses.
+        </p>
+
+        <div className="mt-8 flex flex-wrap gap-4">
+
+          <a href="/contact"
+            className="rounded-lg bg-blue-900 px-6 py-3 hover:bg-blue-800 transition">
+            Start a Project
+          </a>
+
+          <a href="/service"
+            className="rounded-lg border border-white px-6 py-3 hover:bg-white/10 transition">
+            Explore Services
+          </a>
 
         </div>
-      </section>
-    </div>
-  )
+      </div>
+
+    </section>
+  );
 }
 
-export default Hero
+export default Hero;

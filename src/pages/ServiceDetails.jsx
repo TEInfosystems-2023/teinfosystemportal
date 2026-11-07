@@ -1,4 +1,4 @@
-import Layout from "../component/layout/Layout"
+
 
 
 function ServiceDetails() {
